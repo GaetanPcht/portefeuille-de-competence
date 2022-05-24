@@ -1,0 +1,158 @@
+#header {
+    position: fixed;
+    top: 80px;
+    right: 80px;
+    z-index: 99;
+}
+
+#header .hamburger::after,
+#header .hamburger::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--main-text-color);
+    transition: all .25s ease-in-out;
+}
+
+#header .hamburger {
+    width: 40px;
+    height: 14px;
+    position: relative;
+}
+
+#header .hamburger:hover {
+    cursor: pointer;
+}
+
+#header .hamburger:hover::after,
+#header .hamburger:hover::before,
+#header .hamburger.active::after,
+#header .hamburger.active::before {
+    background-color: var(--theme-color);
+}
+
+#header .hamburger:hover::after,
+#header .hamburger.active::after {
+    width: 40px;
+}
+
+#header .hamburger::after {
+    width: 20px;
+}
+
+#header .hamburger::before {
+    width: 40px;
+    margin-bottom: 8px;
+}
+#header.active {
+    background-color: var(--main-bg-color);
+    width: 100vw;
+    height: 100vh;
+    position: unset;
+    top: unset;
+    right: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#header .menu {
+    display: none;
+}
+
+#header.active .hamburger {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+}
+
+#header.active .menu {
+    width: 100%;
+}
+
+#header.active .menu .menu__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+#header.active .menu .menu__list .menu__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+    list-style-type: none;
+    padding: 0;
+}
+
+#header.active .menu .menu__list .menu__item:hover {
+    height: 200px;
+}
+
+#header.active .menu .menu__list .menu__item .menu__item-inner {
+    position: relative;
+    transition: all 0.25s ease;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#header.active .menu .menu__list .menu__item .menu__item-inner#themes {
+    background-image: url("https://www.pgsoftware.fr/images/blog/Image_1_gestion_des_ITAM.png");
+}
+
+#header.active .menu .menu__list .menu__item .menu__item-inner#experiences {
+    background-image: url("https://gustave-restaurants.fr/wp-content/uploads/2019/12/UEFN5666.jpeg");
+}
+
+#header.active .menu .menu__list .menu__item .menu__item-inner#competences {
+    background-image: url("https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190756?k=20&m=949190756&s=170667a&w=0&h=RBVLWqBNY1OrRyUX-bi-gcEPtszzZOxzmU-ori5467M=");
+}
+
+#header.active .menu .menu__list .menu__item .menu__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.4;
+}
+
+#header.active .menu .menu__list .menu__item .menu__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 60px;
+    color: #fff;
+    z-index: 2;
+}
+
+.menu__list {
+    padding: 0;
+    list-style-type: none;
+}
+
+#header .menu.active {
+    display: block;
+}

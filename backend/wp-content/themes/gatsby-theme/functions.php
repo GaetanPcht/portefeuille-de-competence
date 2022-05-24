@@ -132,3 +132,4 @@ function create_competences_hierarchical_taxonomy() {
 add_action( 'init', 'create_competences_hierarchical_taxonomy', 0 );
 
 
+

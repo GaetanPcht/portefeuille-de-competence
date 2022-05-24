@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
   // Create pages for each markdown file.
-  const blogPostTemplate = path.resolve(`src/templates/page-template.js`)
+  const blogPostTemplate = path.resolve(`src/templates/experiences.jsx`)
   result.data.allWpExperience.edges.forEach(({ node }) => {
     const path = node.slug
     createPage({
