@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header/header";
+import Header from "../../components/Header/header";
 
-const Experiences = props => {
+const SingleExperience = props => {
     const experience = props.pageContext
     // console.log(experience.themes.nodes[0].name);
     return (
@@ -26,4 +26,4 @@ const Experiences = props => {
     );
 }
 
-export default Experiences;
+export default SingleExperience;

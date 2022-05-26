@@ -4,33 +4,74 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    {
-      allWpExperience {
-        edges {
-          node {
+{
+  allWpExperience {
+    edges {
+      node {
+        id
+        title
+        content
+        competences {
+          nodes {
             id
-            title
-            content
-            competences {
-              nodes {
-                id
-                name
-                slug
-              }
-            }
-            themes {
-              nodes {
-                id
-                name
-                slug
-              }
-            }
-            uri
+            name
             slug
+          }
+        }
+        themes {
+          nodes {
+            id
+            name
+            slug
+          }
+        }
+        uri
+        slug
+      }
+    }
+  }
+  allWpCompetences {
+    edges {
+      node {
+        id
+        name
+        uri
+        slug
+        experiences {
+          nodes {
+            slug
+            title
+            id
           }
         }
       }
     }
+  }
+  allWpThemes {
+    edges {
+      node {
+        id
+        name
+        uri
+        slug
+        experiences {
+          nodes {
+            slug
+            title
+            id
+            competences {
+              nodes {
+                id
+                slug
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
   `)
   // Handle errors
   if (result.errors) {
@@ -38,14 +79,14 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
   // Create pages for each markdown file.
-  const blogPostTemplate = path.resolve(`src/templates/experiences.jsx`)
+  const SingleExperienceTemplate = path.resolve(`src/templates/single-experience/single-experience.jsx`)
+  const SingleCompetenceTemplate = path.resolve(`src/templates/single-competence/single-competence.jsx`)
+  const SingleThemeTemplate = path.resolve(`src/templates/single-theme/single-theme.jsx`)
   result.data.allWpExperience.edges.forEach(({ node }) => {
-    const path = node.slug
+    const path = `experiences/${node.slug}`
     createPage({
       path,
-      component: blogPostTemplate,
-      // In your blog post template's graphql query, you can use pagePath
-      // as a GraphQL variable to query for data from the markdown file.
+      component: SingleExperienceTemplate,
       context: {
         pagePath: path,
         title: node.title,
@@ -54,6 +95,37 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug,
         themes: node.themes,
         competences: node.competences,
+      },
+    })
+  })
+
+  result.data.allWpCompetences.edges.forEach(({ node }) => {
+    const path = `competences/${node.slug}`
+    createPage({
+      path,
+      component: SingleCompetenceTemplate,
+      context: {
+        pagePath: path,
+        title: node.name,
+        id: node.id,
+        slug: node.slug,
+        experiences: node.experiences
+      },
+    })
+  })
+
+  result.data.allWpThemes.edges.forEach(({ node }) => {
+    const path = `themes/${node.slug}`
+    createPage({
+      path,
+      component: SingleThemeTemplate,
+      context: {
+        pagePath: path,
+        title: node.name,
+        id: node.id,
+        slug: node.slug,
+        experiences: node.experiences,
+        competences: node.experiences.nodes.competences
       },
     })
   })

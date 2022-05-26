@@ -22,19 +22,19 @@ const Header = () => {
                     <li className="menu__item">
                         <div className="menu__item-inner" id="themes">
                             <div className="menu__overlay"></div>
-                            <a className="menu__link" href="#">Thèmes</a>
+                            <a className="menu__link" href="/themes/">Thèmes</a>
                         </div>
                     </li>
                     <li className="menu__item">
                         <div className="menu__item-inner" id="experiences">
                             <div className="menu__overlay"></div>
-                            <a className="menu__link" href="#">Expériences</a>
+                            <a className="menu__link" href="/experiences/">Expériences</a>
                         </div>
                     </li>
                     <li className="menu__item">
                         <div className="menu__item-inner" id="competences">
                             <div className="menu__overlay"></div>
-                            <a className="menu__link" href="#">Compétences</a>
+                            <a className="menu__link" href="/competences/">Compétences</a>
                         </div>
                     </li>
                 </ul>

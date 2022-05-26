@@ -63,8 +63,8 @@ const ComponentName = ({ data }) => {
 }
 
 export const query = graphql`
-{
-    wpPage(id: {eq: "cG9zdDoyNQ=="}) {
+  {
+    wpPage(accueil: {}) {
       id
       title
       slug
