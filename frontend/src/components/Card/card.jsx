@@ -4,7 +4,7 @@ import "./card.css"
 const Card = (props) => {
 
     return(
-        <li className="card">
+        <li className="card" key="1">
             <a href={props.link}>
                 <span>{props.label}</span>
             </a>

@@ -8,7 +8,6 @@ const Footer = () => {
             <nav>
                 <ul>
                     <li><a href="#">Linkedin</a></li>
-                    <li><a href="#">Twitter</a></li>
                     <li><a href="#">Github</a></li>
                 </ul>
             </nav>

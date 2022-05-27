@@ -1,0 +1,16 @@
+.scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(0, -50%);
+    text-align: center;
+}
+
+.scroll a p {
+    color: var(--main-text-color);
+    margin-bottom: 20px;
+}
+
+.scroll a {
+    text-decoration: none;
+}

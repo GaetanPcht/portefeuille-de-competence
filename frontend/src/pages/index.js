@@ -4,29 +4,109 @@ import "./index.css";
 // import  Cursor from "../components/Cursor/cursor"
 import  Header from "../components/Header/header"
 import Footer from "../components/Footer/footer";
+import Scroll from "../components/Scroll/scroll";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+
 
 const ComponentName = ({ data }) => {
+    const particlesInit = async (main) => {
+        await loadFull(main);
+    };
+
+    const particlesLoaded = (container) => {
+    };
+
     return (
         <>
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                loaded={particlesLoaded}
+                options={{
+                    background: {
+                        color: {
+                            value: "#000",
+                        },
+                    },
+                    fpsLimit: 120,
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: false,
+                                mode: "push",
+                            },
+                            onHover: {
+                                enable: false,
+                                mode: "repulse",
+                            },
+                            resize: true,
+                        },
+                        modes: {
+                            push: {
+                                quantity: 4,
+                            },
+                            repulse: {
+                                distance: 200,
+                                duration: 0.4,
+                            },
+                        },
+                    },
+                    particles: {
+                        color: {
+                            value: "#8980F5",
+                        },
+                        links: {
+                            color: "#ffffff",
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.5,
+                            width: 1,
+                        },
+                        collisions: {
+                            enable: true,
+                        },
+                        move: {
+                            direction: "none",
+                            enable: true,
+                            outModes: {
+                                default: "bounce",
+                            },
+                            random: false,
+                            speed: 2,
+                            straight: false,
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                                area: 800,
+                            },
+                            value: 80,
+                        },
+                        opacity: {
+                            value: 0.5,
+                        },
+                        shape: {
+                            type: "circle",
+                        },
+                        size: {
+                            value: { min: 1, max: 5 },
+                        },
+                    },
+                    detectRetina: true,
+                }}
+            />
             <Header />
+
             <main id="main">
+
                 <section id="introduction">
                     <h1>{data.wpPage.accueil.introduction.titre}</h1>
                     <hr className="separator"/>
                     <h2>{data.wpPage.accueil.introduction.prenomEtNom}</h2>
-                    <div className="scroll">
-                        <a href="#portfolio">
-                            <p>SCROLL</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17.703" height="40" viewBox="0 0 17.703 40">
-                                <g id="Group_5" data-name="Group 5" transform="translate(-782.648 -802.5)">
-                                    <line id="Line_3" data-name="Line 3" y2="40" transform="translate(791.5 802.5)" fill="none" stroke="#fff" stroke-width="2"/>
-                                    <line id="Line_4" data-name="Line 4" x1="8" y2="13" transform="translate(791.5 828.5)" fill="none" stroke="#fff" stroke-width="2"/>
-                                    <line id="Line_5" data-name="Line 5" x1="8" y1="13" transform="translate(783.5 828.5)" fill="none" stroke="#fff" stroke-width="2"/>
-                                </g>
-                            </svg>
-                        </a>
-
-                    </div>
+                    <Scroll
+                        link="#portfolio"
+                    />
                 </section>
                 <section id="portfolio">
                     <div id="purpose">
@@ -58,6 +138,7 @@ const ComponentName = ({ data }) => {
                 </section>
             </main>
             <Footer />
+
         </>
     )
 }

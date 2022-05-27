@@ -30,18 +30,28 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   }
-  allWpCompetences {
+    allWpCompetences {
     edges {
       node {
         id
         name
-        uri
         slug
+        acf_competences {
+          dimensionReferentielEuropeen
+          paragraphe
+        }
         experiences {
           nodes {
+            id
             slug
             title
-            id
+            themes {
+              nodes {
+                id
+                name
+                slug
+              }
+            }
           }
         }
       }
@@ -67,6 +77,9 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
+        }
+        acf_themes {
+          paragraphe
         }
       }
     }
@@ -109,7 +122,9 @@ exports.createPages = async ({ graphql, actions }) => {
         title: node.name,
         id: node.id,
         slug: node.slug,
-        experiences: node.experiences
+        acf_competences: node.acf_competences,
+        experiences: node.experiences,
+        themes: node.experiences.nodes.themes
       },
     })
   })
@@ -124,6 +139,7 @@ exports.createPages = async ({ graphql, actions }) => {
         title: node.name,
         id: node.id,
         slug: node.slug,
+        acf_themes: node.acf_themes,
         experiences: node.experiences,
         competences: node.experiences.nodes.competences
       },
