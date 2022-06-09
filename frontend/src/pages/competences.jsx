@@ -41,11 +41,11 @@ const Competences = ({ data }) => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -61,16 +61,16 @@ const Competences = ({ data }) => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -98,16 +98,15 @@ const Competences = ({ data }) => {
                 <section id="introduction">
                     <h1>Competences</h1>
                     <ul className="card-list">
-                        {
-                            data.allWpCompetences.edges.map((element) => {
+                        {(data.allWpCompetence.edges.length > 0 ) ? data.allWpCompetence.edges.map((element) => {
                             return (
                                 <Card
                                     key={element.node.id}
                                     link={element.node.slug}
-                                    label={element.node.name}
+                                    label={element.node.title}
                                 />
                             )
-                        })}
+                    }): <p>Aucune compétence.</p>}
                     </ul>
                 </section>
             </main>
@@ -118,11 +117,11 @@ const Competences = ({ data }) => {
 
 export const query = graphql`
   {
-    allWpCompetences {
+    allWpCompetence {
       edges {
         node {
           id
-          name
+          title
           slug
         }
       }

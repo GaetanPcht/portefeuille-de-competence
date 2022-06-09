@@ -41,11 +41,11 @@ const SingleTheme = props => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -61,16 +61,16 @@ const SingleTheme = props => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -106,34 +106,31 @@ const SingleTheme = props => {
                     <h2>Expériences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {theme.experiences.nodes.map((node) => {
+                        {(theme.acf_themes.experiencesAssociees) ? theme.acf_themes.experiencesAssociees.map((node) => {
                             return (
                                 <Card
-                                    key={node.id}
-                                    label={node.title}
-                                    link={"../experiences/" + node.slug}
+                                    key={node.experienceAssociee.id}
+                                    label={node.experienceAssociee.title}
+                                    link={"../experiences/" + node.experienceAssociee.slug}
                                 />
                             )
-                        })}
+                        }): <p>Aucune expérience associée à ce thème.</p>}
                     </ul>
                 </section>
                 <section>
                     <h2>Compétences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {theme.experiences.nodes.map((node) => {
-                            return node.competences.nodes.map((n) => {
-                                return(
-                                    <Card
-                                        key={n.id}
-                                        label={n.name}
-                                        link={"../competences/" + n.slug}
-                                    />
-                                )
-                            })
-                        })}
+                        {(theme.acf_themes.competencesAssociees) ? theme.acf_themes.competencesAssociees.map((node) => {
+                            return(
+                                <Card
+                                    key={node.competenceAssociee.id}
+                                    label={node.competenceAssociee.title}
+                                    link={"../competences/" + node.competenceAssociee.slug}
+                                />
+                            )
+                        }): <p>Aucune compétence associée à ce thème.</p>}
                     </ul>
-                    {/*<pre>{JSON.stringify(theme, null, 2)}</pre>*/}
                 </section>
             </main>
             <Footer/>

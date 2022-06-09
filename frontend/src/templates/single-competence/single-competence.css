@@ -1,0 +1,22 @@
+#referentiel ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#referentiel ul li {
+    width: 300px;
+    height: 300px;
+    border: solid 5px var(--theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+#referentiel ul li p {
+    text-align: center;
+    font-size: 20px;
+}

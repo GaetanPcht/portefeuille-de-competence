@@ -14,7 +14,6 @@ const SingleExperience = props => {
     const particlesLoaded = (container) => {
     };
     const experience = props.pageContext
-    // console.log(experience.themes.nodes[0].name);
     return (
         <>
             <Particles
@@ -42,11 +41,11 @@ const SingleExperience = props => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -62,16 +61,16 @@ const SingleExperience = props => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -102,7 +101,7 @@ const SingleExperience = props => {
                         link="#content"
                     />
                 </section>
-                <section dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" + experience.content}} id="content">
+                <section dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" + experience.acf_experience.paragraphe}} id="content">
                 </section>
                 <section>
                     <h2>
@@ -110,15 +109,15 @@ const SingleExperience = props => {
                     </h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {experience.themes.nodes.map((node) => {
+                        {(experience.acf_experience.themeAssocies) ? experience.acf_experience.themeAssocies.map((element) => {
                             return (
                                 <Card
-                                    key={node.id}
-                                    label={node.name}
-                                    link={"../themes/" + node.slug}
+                                    key={element.themeAssocie.id}
+                                    label={element.themeAssocie.title}
+                                    link={"../themes/" + element.themeAssocie.slug}
                                 />
                             )
-                        })}
+                        }) : <p>Aucun thème associé à cette expérience.</p>}
                     </ul>
                 </section>
                 <section>
@@ -127,15 +126,15 @@ const SingleExperience = props => {
                     </h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {experience.competences.nodes.map((node) => {
+                        {(experience.acf_experience.competencesAssociees) ? experience.acf_experience.competencesAssociees.map((element) => {
                             return (
                                 <Card
-                                    key={node.id}
-                                    label={node.name}
-                                    link={"../competences/" + node.slug}
+                                    key={element.competenceAssociee.id}
+                                    label={element.competenceAssociee.title}
+                                    link={"../competences/" + element.competenceAssociee.slug}
                                 />
                             )
-                        })}
+                        }) : <p>Aucune compétence associée à cette expérience.</p>}
                     </ul>
                 </section>
             </main>

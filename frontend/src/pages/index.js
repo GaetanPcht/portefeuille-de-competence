@@ -44,11 +44,11 @@ const ComponentName = ({ data }) => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -64,16 +64,16 @@ const ComponentName = ({ data }) => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {

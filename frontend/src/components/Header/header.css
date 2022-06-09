@@ -3,6 +3,9 @@
     top: 80px;
     right: 80px;
     z-index: 99;
+    left: 80px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header .hamburger::after,
@@ -155,4 +158,13 @@
 
 #header .menu.active {
     display: block;
+}
+
+#header a svg {
+    fill: var(--main-text-color);
+    transition: all .25s ease-in-out;
+}
+#header a:hover svg {
+    fill: var(--theme-color);
+    transform: scale(1.05);
 }

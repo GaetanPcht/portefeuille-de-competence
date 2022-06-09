@@ -41,11 +41,11 @@ const Experiences = ({ data }) => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -61,16 +61,16 @@ const Experiences = ({ data }) => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -98,7 +98,7 @@ const Experiences = ({ data }) => {
                 <section id="introduction">
                     <h1>Expériences</h1>
                     <ul className="card-list">
-                        {data.allWpExperience.edges.map((element) => {
+                        {(data.allWpExperience.edges.length > 0) ? data.allWpExperience.edges.map((element) => {
                             return (
                                 <Card
                                     key={element.node.id}
@@ -106,7 +106,7 @@ const Experiences = ({ data }) => {
                                     label={element.node.title}
                                 />
                             )
-                        })}
+                        }) : <p>Aucune expérience.</p>}
                     </ul>
                 </section>
             </main>

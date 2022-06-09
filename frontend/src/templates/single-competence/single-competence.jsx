@@ -6,6 +6,8 @@ import Card from "../../components/Card/card";
 import Particles from "react-tsparticles";
 import {loadFull} from "tsparticles";
 
+import "./single-competence.css";
+
 const SingleCompetence = props => {
     const particlesInit = async (main) => {
         await loadFull(main);
@@ -41,11 +43,11 @@ const SingleCompetence = props => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -61,16 +63,16 @@ const SingleCompetence = props => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -101,39 +103,45 @@ const SingleCompetence = props => {
                         link="#content"
                     />
                 </section>
-                <section id="content" dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" +competence.acf_competences.paragraphe}} />
+                <section id="content" dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" + competence.acf_competences.paragraphe }} />
+                <section id="referentiel">
+                    <h2>Référentiel européen des e-Compétences</h2>
+                    <hr className="separator" color="#8980F5"/>
+                    <ul>
+                        <li><p>{ competence.acf_competences.dimensionReferentielEuropeen.dimension1 }</p></li>
+                        <li><p>{ competence.acf_competences.dimensionReferentielEuropeen.dimension2 }</p></li>
+                        <li><p>{ competence.acf_competences.dimensionReferentielEuropeen.dimension3 }</p></li>
+                    </ul>
+                </section>
                 <section>
                     <h2>Expériences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {competence.experiences.nodes.map((node) => {
-                            return (
+                        {(competence.acf_competences.experiencesAssociees) ? competence.acf_competences.experiencesAssociees.map((node) => {
+                            return(
                                 <Card
-                                    key={node.id}
-                                    label={node.title}
-                                    link={"../experiences/" + node.slug}
+                                    key={node.experienceAssocie.id}
+                                    label={node.experienceAssocie.title}
+                                    link={"../experience/" + node.experienceAssocie.slug}
                                 />
                             )
-                        })}
+                        }) : <p>Aucune expérience associée à cette compétence.</p>}
                     </ul>
                 </section>
                 <section>
                     <h2>Thèmes associés</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
-                        {competence.experiences.nodes.map((node) => {
-                            return node.themes.nodes.map((n) => {
-                                return(
-                                    <Card
-                                        key={n.id}
-                                        label={n.name}
-                                        link={"../themes/" + n.slug}
-                                    />
-                                )
-                            })
-                        })}
+                        {(competence.acf_competences.themeAssocies) ? competence.acf_competences.themeAssocies.map((node) => {
+                            return(
+                                <Card
+                                    key={node.themeAssocie.id}
+                                    label={node.themeAssocie.title}
+                                    link={"../themes/" + node.themeAssocie.slug}
+                                />
+                            )
+                        }) : <p>Aucun thème associé à cette compétence.</p>}
                     </ul>
-                    <pre>{JSON.stringify(competence, null, 2)}</pre>
                 </section>
             </main>
             <Footer/>

@@ -7,6 +7,7 @@ import Footer from "../components/Footer/footer";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
+
 const Themes = ({ data }) => {
     const particlesInit = async (main) => {
         await loadFull(main);
@@ -41,11 +42,11 @@ const Themes = ({ data }) => {
                         },
                         modes: {
                             push: {
-                                quantity: 4,
+                                quantity: 0,
                             },
                             repulse: {
-                                distance: 200,
-                                duration: 0.4,
+                                distance: 0,
+                                duration: 0,
                             },
                         },
                     },
@@ -61,16 +62,16 @@ const Themes = ({ data }) => {
                             width: 1,
                         },
                         collisions: {
-                            enable: true,
+                            enable: false,
                         },
                         move: {
                             direction: "none",
                             enable: true,
                             outModes: {
-                                default: "bounce",
+                                default: "out",
                             },
                             random: false,
-                            speed: 2,
+                            speed: 1,
                             straight: false,
                         },
                         number: {
@@ -98,15 +99,15 @@ const Themes = ({ data }) => {
                 <section id="introduction">
                     <h1>Thèmes</h1>
                     <ul className="card-list">
-                        {data.allWpThemes.nodes.map((element) => {
+                        {(data.allWpThemes.nodes.length > 0 ) ? data.allWpThemes.nodes.map((element) => {
                             return (
                                 <Card
                                     key={element.id}
                                     link={element.slug}
-                                    label={element.name}
+                                    label={element.title}
                                 />
                             )
-                        })}
+                        }) : <p>Aucun thème.</p>}
                     </ul>
                 </section>
             </main>
@@ -121,7 +122,7 @@ export const query = graphql`
       nodes {
         slug
         id
-        name
+        title
       }
     }
   }
