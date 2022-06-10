@@ -7,6 +7,7 @@ import Footer from "../components/Footer/footer";
 import Scroll from "../components/Scroll/scroll";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Seo from "../components/seo";
 
 
 const ComponentName = ({ data }) => {
@@ -19,6 +20,7 @@ const ComponentName = ({ data }) => {
 
     return (
         <>
+            <Seo title="Portefeuille de compétence" />
             <Particles
                 id="tsparticles"
                 init={particlesInit}

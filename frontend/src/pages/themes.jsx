@@ -6,6 +6,7 @@ import Card from "../components/Card/card";
 import Footer from "../components/Footer/footer";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Seo from "../components/seo";
 
 
 const Themes = ({ data }) => {
@@ -17,6 +18,7 @@ const Themes = ({ data }) => {
     };
     return (
         <>
+            <Seo title="Tous les thèmes" />
             <Particles
                 id="tsparticles"
                 init={particlesInit}

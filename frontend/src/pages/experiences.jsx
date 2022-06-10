@@ -6,6 +6,7 @@ import Card from "../components/Card/card";
 import Footer from "../components/Footer/footer";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import Seo from "../components/seo";
 
 const Experiences = ({ data }) => {
     const particlesInit = async (main) => {
@@ -16,6 +17,7 @@ const Experiences = ({ data }) => {
     };
     return (
         <>
+            <Seo title="Toutes les expériences" />
             <Particles
                 id="tsparticles"
                 init={particlesInit}

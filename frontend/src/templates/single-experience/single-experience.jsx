@@ -5,6 +5,7 @@ import Card from "../../components/Card/card";
 import Scroll from "../../components/Scroll/scroll";
 import {loadFull} from "tsparticles";
 import Particles from "react-tsparticles";
+import Seo from "../../components/seo";
 
 const SingleExperience = props => {
     const particlesInit = async (main) => {
@@ -16,6 +17,7 @@ const SingleExperience = props => {
     const experience = props.pageContext
     return (
         <>
+            <Seo title={experience.title} />
             <Particles
                 id="tsparticles"
                 init={particlesInit}

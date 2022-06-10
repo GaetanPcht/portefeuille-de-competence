@@ -7,6 +7,7 @@ import Particles from "react-tsparticles";
 import {loadFull} from "tsparticles";
 
 import "./single-competence.css";
+import Seo from "../../components/seo";
 
 const SingleCompetence = props => {
     const particlesInit = async (main) => {
@@ -18,6 +19,7 @@ const SingleCompetence = props => {
     const competence = props.pageContext
     return (
         <>
+            <Seo title={competence.title} />
             <Particles
                 id="tsparticles"
                 init={particlesInit}

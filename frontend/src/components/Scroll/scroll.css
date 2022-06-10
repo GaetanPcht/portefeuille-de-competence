@@ -14,3 +14,21 @@
 .scroll a {
     text-decoration: none;
 }
+
+.scroll svg,
+.scroll svg line,
+.scroll a p {
+    transition: all .25s ease-in-out;
+}
+
+.scroll:hover svg {
+    transform: scale(1.1);
+}
+
+.scroll:hover svg line {
+    stroke: var(--theme-color);
+}
+
+.scroll:hover a p {
+    color: var(--theme-color)
+}

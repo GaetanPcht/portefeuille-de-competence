@@ -54,6 +54,15 @@ section {
   position: relative;
 }
 
+section#about {
+  align-items: center;
+}
+
+section#about a:hover {
+  background-color: var(--theme-color);
+  color: var(--main-text-color);
+  border-color: var(--theme-color);
+}
 
 section:not(#introduction) h2::after {
   content: "";

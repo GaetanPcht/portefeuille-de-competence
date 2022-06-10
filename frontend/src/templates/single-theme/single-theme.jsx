@@ -5,6 +5,7 @@ import Card from "../../components/Card/card";
 import Scroll from "../../components/Scroll/scroll";
 import Particles from "react-tsparticles";
 import {loadFull} from "tsparticles";
+import Seo from "../../components/seo";
 
 const SingleTheme = props => {
     const theme = props.pageContext
@@ -16,6 +17,7 @@ const SingleTheme = props => {
     };
     return (
         <>
+            <Seo title={theme.title} />
             <Particles
                 id="tsparticles"
                 init={particlesInit}
