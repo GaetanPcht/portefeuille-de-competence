@@ -96,7 +96,7 @@ const SingleTheme = props => {
                 }}
             />
             <Header/>
-            <main>
+            <main id="single">
                 <section id="introduction">
                     <h1>{theme.title}</h1>
                     <Scroll
@@ -104,7 +104,7 @@ const SingleTheme = props => {
                     />
                 </section>
                 <section id="content" dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" +theme.acf_themes.paragraphe}} />
-                <section>
+                <section className="associate">
                     <h2>Expériences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
@@ -119,7 +119,7 @@ const SingleTheme = props => {
                         }): <p>Aucune expérience associée à ce thème.</p>}
                     </ul>
                 </section>
-                <section>
+                <section className="associate">
                     <h2>Compétences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">

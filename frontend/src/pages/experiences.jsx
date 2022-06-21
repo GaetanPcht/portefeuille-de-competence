@@ -96,7 +96,7 @@ const Experiences = ({ data }) => {
                 }}
             />
             <Header />
-            <main>
+            <main id="archive">
                 <section id="introduction">
                     <h1>Expériences</h1>
                     <ul className="card-list">

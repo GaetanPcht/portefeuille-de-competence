@@ -96,7 +96,7 @@ const Competences = ({ data }) => {
                 }}
             />
             <Header />
-            <main>
+            <main id="archive">
                 <section id="introduction">
                     <h1>Competences</h1>
                     <ul className="card-list">

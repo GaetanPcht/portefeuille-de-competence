@@ -111,17 +111,17 @@
     background-position: center;
 }
 
-#header.active .menu .menu__list .menu__item .menu__item-inner#themes {
-    background-image: url("https://www.pgsoftware.fr/images/blog/Image_1_gestion_des_ITAM.png");
-}
+/*#header.active .menu .menu__list .menu__item .menu__item-inner#themes {*/
+/*    background-image: url("https://www.pgsoftware.fr/images/blog/Image_1_gestion_des_ITAM.png");*/
+/*}*/
 
-#header.active .menu .menu__list .menu__item .menu__item-inner#experiences {
-    background-image: url("https://gustave-restaurants.fr/wp-content/uploads/2019/12/UEFN5666.jpeg");
-}
+/*#header.active .menu .menu__list .menu__item .menu__item-inner#experiences {*/
+/*    background-image: url("https://gustave-restaurants.fr/wp-content/uploads/2019/12/UEFN5666.jpeg");*/
+/*}*/
 
-#header.active .menu .menu__list .menu__item .menu__item-inner#competences {
-    background-image: url("https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190756?k=20&m=949190756&s=170667a&w=0&h=RBVLWqBNY1OrRyUX-bi-gcEPtszzZOxzmU-ori5467M=");
-}
+/*#header.active .menu .menu__list .menu__item .menu__item-inner#competences {*/
+/*    background-image: url("https://media.istockphoto.com/photos/various-sport-equipments-on-grass-picture-id949190756?k=20&m=949190756&s=170667a&w=0&h=RBVLWqBNY1OrRyUX-bi-gcEPtszzZOxzmU-ori5467M=");*/
+/*}*/
 
 #header.active .menu .menu__list .menu__item .menu__overlay {
     position: absolute;
@@ -149,11 +149,16 @@
     font-size: 60px;
     color: #fff;
     z-index: 2;
+    transition: all .25s ease-in-out;
 }
 
 .menu__list {
     padding: 0;
     list-style-type: none;
+}
+
+#header.active .menu .menu__list .menu__item .menu__link:hover {
+    color: var(--theme-color);
 }
 
 #header .menu.active {
@@ -167,4 +172,8 @@
 #header a:hover svg {
     fill: var(--theme-color);
     transform: scale(1.05);
+}
+
+#header .menu.active a#toHome {
+    display: none;
 }

@@ -89,6 +89,11 @@ section#introduction {
 #about {
   flex-direction: row;
   gap: 120px;
+  flex-wrap: nowrap;
+}
+
+#about div img {
+  max-width: 500px;
 }
 
 #about a {
@@ -143,4 +148,11 @@ section#introduction {
   -webkit-text-stroke: 0.063rem var(--theme-color);
 }
 
+main#archive #introduction {
+  padding-top: 200px;
+  height: unset;
+}
 
+main#single .associate {
+  height: unset;
+}

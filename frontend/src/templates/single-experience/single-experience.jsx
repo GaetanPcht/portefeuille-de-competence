@@ -96,7 +96,7 @@ const SingleExperience = props => {
                 }}
             />
             <Header/>
-            <main>
+            <main id="single">
                 <section id="introduction">
                     <h1>{experience.title}</h1>
                     <Scroll
@@ -105,7 +105,7 @@ const SingleExperience = props => {
                 </section>
                 <section dangerouslySetInnerHTML={{ __html:"<h2>Description</h2><hr class=\"separator\" color=\"#8980F5\"/>" + experience.acf_experience.paragraphe}} id="content">
                 </section>
-                <section>
+                <section className="associate">
                     <h2>
                         Thèmes associés
                     </h2>
@@ -122,7 +122,7 @@ const SingleExperience = props => {
                         }) : <p>Aucun thème associé à cette expérience.</p>}
                     </ul>
                 </section>
-                <section>
+                <section className="associate">
                     <h2>
                         Compétences associées
                     </h2>

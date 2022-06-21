@@ -97,7 +97,7 @@ const Themes = ({ data }) => {
                 }}
             />
             <Header />
-            <main>
+            <main id="archive">
                 <section id="introduction">
                     <h1>Thèmes</h1>
                     <ul className="card-list">

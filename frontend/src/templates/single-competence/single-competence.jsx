@@ -98,7 +98,7 @@ const SingleCompetence = props => {
                 }}
             />
             <Header/>
-            <main>
+            <main id="single">
                 <section id="introduction">
                     <h1>{competence.title}</h1>
                     <Scroll
@@ -115,7 +115,7 @@ const SingleCompetence = props => {
                         <li><p>{ competence.acf_competences.dimensionReferentielEuropeen.dimension3 }</p></li>
                     </ul>
                 </section>
-                <section>
+                <section className="associate">
                     <h2>Expériences associées</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">
@@ -130,7 +130,7 @@ const SingleCompetence = props => {
                         }) : <p>Aucune expérience associée à cette compétence.</p>}
                     </ul>
                 </section>
-                <section>
+                <section className="associate">
                     <h2>Thèmes associés</h2>
                     <hr className="separator" color="#8980F5"/>
                     <ul className="card-list">

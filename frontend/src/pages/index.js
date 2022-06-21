@@ -20,7 +20,7 @@ const ComponentName = ({ data }) => {
 
     return (
         <>
-            <Seo title="Portefeuille de compétence" />
+            <Seo title="Portefeuille de compétences" />
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -127,10 +127,10 @@ const ComponentName = ({ data }) => {
                         <h2>{data.wpPage.accueil.aProposDeMoi.titre}</h2>
                         <hr className="separator" color="#8980F5"/>
                         <div dangerouslySetInnerHTML={{ __html:data.wpPage.accueil.aProposDeMoi.paragraphe}} />
-                        <a href={data.wpPage.accueil.aProposDeMoi.cv.url} title={data.wpPage.accueil.aProposDeMoi.cv.title}>Télécharger mon CV</a>
+                        <a href={`../../CV_GAETAN-PICHOUT-PDC_min.pdf`} title="CV de Gaétan Pichout" download>Télécharger mon CV</a>
                     </div>
                     <div>
-                        <img src={data.wpPage.accueil.aProposDeMoi.photo.sourceUrl} alt={data.wpPage.accueil.aProposDeMoi.photo.altText}/>
+                        <img src={`../../Profile_Gaetan-Pichout.jpeg`} alt="Photo de Gaétan Pichout" />
                     </div>
                 </section>
                 <section id="contact">
